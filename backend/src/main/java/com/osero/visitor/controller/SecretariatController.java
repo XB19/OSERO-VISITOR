@@ -2,8 +2,10 @@ package com.osero.visitor.controller;
 
 import com.osero.visitor.dto.VisitDtos.*;
 import com.osero.visitor.service.VisitService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,6 +23,14 @@ public class SecretariatController {
     @GetMapping("/visits")
     public List<VisitRequestView> pendingVisits() {
         return visitService.listPending();
+    }
+
+    /** Registre des visites (memes donnees que l'historique administrateur). */
+    @GetMapping("/visits/history")
+    public List<VisitHistoryRow> history(
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Instant from,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Instant to) {
+        return visitService.history(from, to);
     }
 
     @PostMapping("/visits/{id}/accept")

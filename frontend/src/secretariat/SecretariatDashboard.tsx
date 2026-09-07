@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { apiClient } from '../api/client'
 import { AppShell } from '../components/AppShell'
+import { SECRETARIAT_LINKS } from './links'
 import type { VisitRequestView } from '../types'
 import { VISIT_REASON_LABELS } from '../types'
 
@@ -34,7 +35,7 @@ export function SecretariatDashboard() {
   }
 
   return (
-    <AppShell title="Secrétariat" links={[{ to: '/secretariat', label: 'Demandes en attente' }]}>
+    <AppShell title="Secrétariat" links={SECRETARIAT_LINKS}>
       <h2 className="section-title">Demandes de visite à valider</h2>
       <p className="section-subtitle">
         Chaque demande validée ou clôturée est automatiquement enregistrée dans le registre numérique.

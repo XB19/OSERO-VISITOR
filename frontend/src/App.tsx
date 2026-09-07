@@ -3,6 +3,7 @@ import { KioskFlow } from './kiosk/KioskFlow'
 import { LoginPage } from './auth/LoginPage'
 import { ProtectedRoute } from './auth/ProtectedRoute'
 import { SecretariatDashboard } from './secretariat/SecretariatDashboard'
+import { RegisterPage } from './secretariat/RegisterPage'
 import { SecurityDashboard } from './security/SecurityDashboard'
 import { AdminDashboard } from './admin/AdminDashboard'
 import { EmployeesPage } from './admin/EmployeesPage'
@@ -20,6 +21,15 @@ export default function App() {
         element={
           <ProtectedRoute allowedRoles={['SECRETARIAT', 'ADMIN']}>
             <SecretariatDashboard />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/secretariat/registre"
+        element={
+          <ProtectedRoute allowedRoles={['SECRETARIAT', 'ADMIN']}>
+            <RegisterPage />
           </ProtectedRoute>
         }
       />
