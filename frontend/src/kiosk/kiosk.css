@@ -1,0 +1,232 @@
+.kiosk {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  isolation: isolate;
+}
+
+.kiosk-panel {
+  position: relative;
+  z-index: 1;
+  background: var(--osero-surface);
+  border-radius: var(--osero-radius-lg);
+  padding: 48px;
+  width: 100%;
+  max-width: 640px;
+  box-shadow: var(--osero-shadow-lg);
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.kiosk-logo {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kiosk-logo .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--osero-accent);
+  box-shadow: 0 0 0 5px rgba(24, 164, 99, 0.25);
+}
+
+.kiosk-title {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.kiosk-subtitle {
+  font-size: 1.08rem;
+  color: var(--osero-text-muted);
+  margin: 0 0 32px;
+}
+
+.kiosk-big-btn {
+  width: 100%;
+  padding: 24px;
+  font-size: 1.4rem;
+}
+
+.kiosk-field {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.kiosk-field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.kiosk-field input,
+.kiosk-field textarea {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  border: 2px solid var(--osero-border);
+}
+
+.kiosk-field input:focus,
+.kiosk-field textarea:focus {
+  outline: none;
+  border-color: var(--osero-primary);
+}
+
+.kiosk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kiosk-option {
+  padding: 22px 16px;
+  border-radius: 14px;
+  border: 2px solid var(--osero-border);
+  background: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: all 0.12s ease;
+}
+
+.kiosk-option:hover {
+  border-color: var(--osero-primary);
+}
+
+.kiosk-option.selected {
+  border-color: var(--osero-primary);
+  background: #eaf2fb;
+  color: var(--osero-primary-dark);
+}
+
+.kiosk-employee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 24px;
+}
+
+.kiosk-employee-card {
+  text-align: left;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 2px solid var(--osero-border);
+  background: #fff;
+}
+
+.kiosk-employee-card.selected {
+  border-color: var(--osero-primary);
+  background: #eaf2fb;
+}
+
+.kiosk-employee-card .name {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.kiosk-employee-card .meta {
+  color: var(--osero-text-muted);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.kiosk-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.kiosk-nav .btn {
+  flex: 1;
+}
+
+.kiosk-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--osero-border);
+  text-align: left;
+}
+
+.kiosk-summary-row .label {
+  color: var(--osero-text-muted);
+}
+
+.kiosk-summary-row .value {
+  font-weight: 700;
+}
+
+.kiosk-status-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.kiosk-status-message {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.kiosk-spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--osero-border);
+  border-top-color: var(--osero-primary);
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  animation: kiosk-spin 0.8s linear infinite;
+}
+
+@keyframes kiosk-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.kiosk-error {
+  color: var(--osero-danger);
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+.kiosk-big-btn.pulse {
+  animation: btn-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes btn-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(20, 82, 143, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(20, 82, 143, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kiosk-big-btn.pulse {
+    animation: none;
+  }
+}

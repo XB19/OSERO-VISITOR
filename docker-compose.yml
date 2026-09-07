@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: osero-visitor-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: osero_visitor
+      POSTGRES_USER: osero
+      POSTGRES_PASSWORD: osero
+    ports:
+      - "5432:5432"
+    volumes:
+      - osero_visitor_pgdata:/var/lib/postgresql/data
+
+volumes:
+  osero_visitor_pgdata:

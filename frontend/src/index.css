@@ -1,0 +1,253 @@
+:root {
+  --osero-primary: #14528f;
+  --osero-primary-dark: #0d3a68;
+  --osero-primary-light: #e8f1fb;
+  --osero-accent: #18a463;
+  --osero-accent-light: #e5f8ee;
+  --osero-danger: #e0342c;
+  --osero-danger-light: #fdecea;
+  --osero-warning: #dc8a12;
+  --osero-warning-light: #fdf1de;
+  --osero-info: #2563eb;
+
+  --osero-bg: #f2f5f9;
+  --osero-surface: #ffffff;
+  --osero-surface-alt: #f8fafc;
+  --osero-text: #131c2b;
+  --osero-text-muted: #64748b;
+  --osero-border: #e3e8ef;
+
+  --osero-radius-sm: 8px;
+  --osero-radius: 14px;
+  --osero-radius-lg: 22px;
+
+  --osero-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --osero-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --osero-shadow-lg: 0 24px 64px rgba(8, 20, 40, 0.28);
+
+  --font-display: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--osero-bg);
+  color: var(--osero-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--osero-primary);
+  color: #fff;
+}
+
+/* ---- Buttons ---- */
+
+.btn {
+  border: none;
+  border-radius: var(--osero-radius-sm);
+  padding: 14px 24px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  transition: transform 0.08s ease, box-shadow 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+  box-shadow: var(--osero-shadow-sm);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--osero-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--osero-primary-dark);
+}
+
+.btn-success {
+  background: var(--osero-accent);
+  color: #fff;
+}
+
+.btn-success:hover {
+  background: #128a51;
+}
+
+.btn-danger {
+  background: var(--osero-danger);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #c5271f;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--osero-text);
+  border: 1.5px solid var(--osero-border);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  border-color: var(--osero-primary);
+  color: var(--osero-primary);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---- Cards ---- */
+
+.card {
+  background: var(--osero-surface);
+  border-radius: var(--osero-radius);
+  border: 1px solid var(--osero-border);
+  box-shadow: var(--osero-shadow-sm);
+}
+
+/* ---- Badges & status colors ---- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge-neutral {
+  background: var(--osero-surface-alt);
+  color: var(--osero-text-muted);
+}
+
+.badge-info {
+  background: var(--osero-primary-light);
+  color: var(--osero-primary-dark);
+}
+
+.badge-warning {
+  background: var(--osero-warning-light);
+  color: var(--osero-warning);
+}
+
+.badge-success {
+  background: var(--osero-accent-light);
+  color: #0e7a4a;
+}
+
+.badge-danger {
+  background: var(--osero-danger-light);
+  color: var(--osero-danger);
+}
+
+/* ---- Skeleton loading ---- */
+
+.skeleton {
+  background: linear-gradient(90deg, #eceff3 25%, #f6f7f9 37%, #eceff3 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+  border-radius: var(--osero-radius-sm);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* ---- Empty state ---- */
+
+.empty-state {
+  text-align: center;
+  padding: 56px 24px;
+  color: var(--osero-text-muted);
+}
+
+.empty-state .icon {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+.empty-state .title {
+  font-weight: 700;
+  color: var(--osero-text);
+  margin-bottom: 4px;
+}
+
+/* ---- Fade-in utility ---- */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in-up 0.35s ease both;
+}

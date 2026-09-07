@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: osero-visitor-backend
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:osero_visitor}
+    username: ${DB_USER:osero}
+    password: ${DB_PASSWORD:osero}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: ${SERVER_PORT:8080}
+
+osero:
+  jwt:
+    secret: ${JWT_SECRET:changeme-dev-secret-please-override-in-production-min-32-bytes}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:480}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:5174,http://localhost:5175,http://localhost:5176}
+  visit:
+    waiting-escalation-minutes: ${VISIT_ESCALATION_MINUTES:5}
+
+logging:
+  level:
+    com.osero.visitor: INFO

@@ -1,0 +1,4 @@
+logging:
+  level:
+    com.osero.visitor: DEBUG
+    org.hibernate.SQL: DEBUG
